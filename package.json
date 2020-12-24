@@ -1,0 +1,20 @@
+{
+  "name": "pulselive-player-stats-card",
+  "version": "1.0.0",
+  "description": "pulselive coding task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mdg",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@selfisekai/gulp-sass": "^4.2.0",
+    "browser-sync": "^2.26.13",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "sass": "^1.30.0"
+  }
+}
