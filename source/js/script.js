@@ -16,6 +16,7 @@ function getData(url) {
 getData("../../data/player-stats.json").then(data => {
     playerData = data;
 
+    const playerImg = document.getElementById("player-img");
     const playerName = document.getElementById("player-name");
     const playerPosition = document.getElementById("player-position");
     const clubBadge = document.getElementById("badge");
@@ -26,8 +27,10 @@ getData("../../data/player-stats.json").then(data => {
     const passesPerMinute = document.getElementById("passes-per-minute");
 
 
-    console.log(playerData[0].stats[5]);
+    console.log(playerData[0].player.id);
 
+    // Change player image
+    playerImg.src = "assets/p" + playerData[0].player.id + ".png";
     // Change player name
     playerName.innerHTML = playerData[0].player.name.first + " " + playerData[0].player.name.last;
     // Change player position
