@@ -1,3 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+$font-stack: 'Roboto', sans-serif;
+$pink: #e90052;
+$purple: #38003c;
+$grey: #eaeaea;
+
 body {
-    background: red;
+    font: 100% $font-stack;
+    color: white;
+    background-color:darken($color: grey, $amount: 30);
+    margin: 0;
+}
+
+h1, h3 {
+    margin-block-start: unset;
+    margin-block-end: unset;
+}
+
+#stats-card {
+    width: 300px;
+    height: 600px;
+    background-color: white;
+    background-image: url(../../assets/background_pattern.png);
+    overflow: hidden;
+}
+
+#player-select {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 14px 16px;
+    padding: 0 10px;
+    width: 268px;
+    height: 40px;
+    background-color: $grey;
+    border: hidden;
+    appearance: none;
+    background-image: url(../../assets/dropdown_icon.png);
+    background-repeat: no-repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+}
+
+#headshot {
+    height: 226px;
+}
+
+#player-img {
+    position: absolute;
+    top: 86px;
+    left: 12px;
+    width: 164px;
+}
+
+#info {
+    background-color: $pink;
+    height: inherit;
+    padding: 16px;
+}
+
+#club {
+    position: absolute;
+    top: 239px;
+    left: 176px;
+    background-color:white;
+    width: 110px;
+    height: 110px;
+    padding: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: grid;
+    transform: scale(0.63);
+}
+
+#badge {
+    background: url(../../assets/badges_sprite.png);
+    width: 100px;
+    height: 100px;
+    background-size: 1200%;
+    background-position: -500px -1000px;
+    margin: auto;
+}
+
+#player-name {
+    font-weight: 400;
+    font-size: 22px;
+    margin-top: -4px;
+    margin-bottom: 5px;
+}
+
+#player-position {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#stats {
+    margin: unset;
+    margin-top: 20px;
+    padding-inline-start: unset;
+    color: $purple;
+    list-style: none;
+    width: 100%;
+    li {
+        font-weight: 300;
+        background-color: $grey;
+        margin: 2px;
+        padding: 10px;
+        box-shadow: 0px 0px 20px 1px #38003c54;
+        span {
+            float: right;
+            font-weight: 500;
+        }
+    }
 }
