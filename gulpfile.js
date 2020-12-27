@@ -44,6 +44,14 @@ function watch() {
     gulp.watch('./source/js/**/*.js', script).on('change', browserSync.reload);
 }
 
+function init() {
+    style();
+    script();
+    console.log("🎉 Happy New Year! 🎉");
+    return Promise.resolve();
+}
+
 exports.style = style;
 exports.script = script;
 exports.watch = watch;
+exports.init = init;

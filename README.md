@@ -11,4 +11,5 @@ v15.5.0
 ```
 - `clone` this repository and `cd` into it
 - run `npm install` to install dependencies
-- run `gulp watch` and go to http://localhost:3000/
+- run `gulp init` to build css and js files
+- run `gulp watch` server should start at http://localhost:3000/
