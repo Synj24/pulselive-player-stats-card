@@ -15,22 +15,55 @@ function getData(url) {
 
 getData("../../data/player-stats.json").then(data => {
     playerData = data;
+    const playerSelector = document.getElementById("player-select");
 
-    const playerImg = document.getElementById("player-img");
-    const playerName = document.getElementById("player-name");
-    const playerPosition = document.getElementById("player-position");
-    const clubBadge = document.getElementById("badge");
-    const apperances = document.getElementById("appearances");
-    const goals = document.getElementById("goals");
-    const assistsLabel = document.getElementById("assists-label")
-    const assists = document.getElementById("assists");
-    const goalsPerMatch = document.getElementById("goals-per-match");
-    const passesPerMinute = document.getElementById("passes-per-minute");
+    function buildDropdown() {
 
-    changePlayer(playerData[2]);
-    // fails for playerData[3]
+        for (let i = 0; i < playerData.length; i ++) {
+            let name = playerData[i].player.name.first + " " + playerData[i].player.name.last;
+            let element = document.createElement("option");
+            element.textContent = name;
+            element.value = name;
+            playerSelector.appendChild(element);
+        }
+    }
+
+    playerSelector.addEventListener('change', (selection) => {
+        switch (selection.target.value) {
+            case "Toby Alderweireld":
+                changePlayer(playerData[0]);
+                break;
+            case "Yaya Touré":
+                changePlayer(playerData[1]);
+                break;
+            case "Wayne Rooney":
+                changePlayer(playerData[2]);
+                break;
+            case "Per Mertesacker":
+                changePlayer(playerData[3]);
+                break;
+            case "Riyad Mahrez":
+                changePlayer(playerData[4]);
+                break;
+        }
+    });
+
+
 
     function changePlayer(player) {
+        const playerImg = document.getElementById("player-img");
+        const playerName = document.getElementById("player-name");
+        const playerPosition = document.getElementById("player-position");
+        const clubBadge = document.getElementById("badge");
+        const apperances = document.getElementById("appearances");
+        const goals = document.getElementById("goals");
+        const assists = document.getElementById("assists");
+        const goalsPerMatch = document.getElementById("goals-per-match");
+        const passesPerMinute = document.getElementById("passes-per-minute");
+
+        //Clear console
+        console.clear();
+
         // Change player image
         playerImg.src = "assets/p" + player.player.id + ".png";
         console.log("changed image to: " + "p" + player.player.id + ".png");
@@ -67,6 +100,8 @@ getData("../../data/player-stats.json").then(data => {
             }
         }
     }
+    buildDropdown()
+    changePlayer(playerData[0]);
 })
 
 // Takes player position code and returns a string
