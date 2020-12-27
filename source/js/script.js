@@ -27,7 +27,7 @@ getData("../../data/player-stats.json").then(data => {
     const goalsPerMatch = document.getElementById("goals-per-match");
     const passesPerMinute = document.getElementById("passes-per-minute");
 
-    changePlayer(playerData[3]);
+    changePlayer(playerData[2]);
     // fails for playerData[3]
 
     function changePlayer(player) {
@@ -63,12 +63,13 @@ getData("../../data/player-stats.json").then(data => {
             if (player.stats[4].name ===  "fwd_pass" && 
                 player.stats[8].name === "backward_pass" && 
                 player.stats[7].name === "mins_played") {
-                passesPerMinute.innerHTML = roundTwo(getTotalPasses(player) / player.stats[7].value);
+                passesPerMinute.innerHTML = roundTwo((player.stats[4].value + player.stats[8].value) / player.stats[7].value);
             }
         }
     }
 })
 
+// Takes player position code and returns a string
 function decodePosition(code) {
     switch (code) {
         case "D":
@@ -83,6 +84,7 @@ function decodePosition(code) {
     }
 }
 
+// Takes current team short name and returns the offset for the spritesheet
 function getBadge(team) {
     switch (team) {
         case "Spurs":
@@ -103,10 +105,7 @@ function getBadge(team) {
     }
 }
 
+// rounds two numbers to 2 decimal places if nessercary
 function roundTwo(num) {
     return Math.round((num + Number.EPSILON) * 100) / 100;
-}
-
-function getTotalPasses(player) {
-    return player.stats[4].value + player.stats[8].value;
 }
