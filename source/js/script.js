@@ -11,7 +11,7 @@ function getData(url) {
                 resolve(data);
             })
     })
-};
+}
 
 getData("../../data/player-stats.json").then(data => {
     playerData = data;
@@ -92,7 +92,8 @@ getData("../../data/player-stats.json").then(data => {
             // Change Assists
             if (player.stats[5].name === "goal_assist") assists.innerHTML = player.stats[5].value;
             // Change Goals per match
-            if (player.stats[0].name === "goals" && player.stats[6].name === "appearances") goalsPerMatch.innerHTML = roundTwo(player.stats[0].value / player.stats[6].value);
+            if (player.stats[0].name === "goals" &&
+                player.stats[6].name === "appearances") goalsPerMatch.innerHTML = roundTwo(player.stats[0].value / player.stats[6].value);
             // Change passesPerMinute
             if (player.stats[4].name ===  "fwd_pass" && 
                 player.stats[8].name === "backward_pass" && 
@@ -108,36 +109,20 @@ getData("../../data/player-stats.json").then(data => {
 // Takes player position code and returns a string
 function decodePosition(code) {
     switch (code) {
-        case "D":
-            return "Defender";
-            break;
-        case "M":
-            return "Midfielder";
-            break;
-        case "F":
-            return "Striker";
-            break;
+        case "D": return "Defender";
+        case "M": return "Midfielder";
+        case "F": return "Striker";
     }
 }
 
 // Takes current team short name and returns the offset for the spritesheet
 function getBadge(team) {
     switch (team) {
-        case "Spurs":
-            return "-500px -1000px";
-            break;
-        case "Man City":
-            return "-800px -700px";
-            break;
-        case "Man Utd":
-            return "-600px -800px";
-            break;
-        case "Arsenal":
-            return "-100px -100px";
-            break;
-        case "Leicester":
-            return "0px 0px";
-            break;
+        case "Spurs": return "-500px -1000px";
+        case "Man City": return "-800px -700px";
+        case "Man Utd": return "-600px -800px";
+        case "Arsenal": return "-100px -100px";
+        case "Leicester": return "0px 0px";
     }
 }
 

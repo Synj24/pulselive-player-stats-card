@@ -13,6 +13,7 @@
     "@babel/preset-env": "^7.12.11",
     "@selfisekai/gulp-sass": "^4.2.0",
     "browser-sync": "^2.26.13",
+    "eslint": "^7.16.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "sass": "^1.30.0"
