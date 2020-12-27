@@ -9,7 +9,7 @@ function getData(url) {
             }).then((data) => {
                 data = data.players;
                 resolve(data);
-            })
+            }).catch(err => reject(err))
     })
 }
 
@@ -93,7 +93,7 @@ getData("../../data/player-stats.json").then(data => {
             if (player.stats[5].name === "goal_assist") assists.innerHTML = player.stats[5].value;
             // Change Goals per match
             if (player.stats[0].name === "goals" &&
-                player.stats[6].name === "appearances") goalsPerMatch.innerHTML = roundTwo(player.stats[0].value / player.stats[6].value);
+            player.stats[6].name === "appearances") goalsPerMatch.innerHTML = roundTwo(player.stats[0].value / player.stats[6].value);
             // Change passesPerMinute
             if (player.stats[4].name ===  "fwd_pass" && 
                 player.stats[8].name === "backward_pass" && 
