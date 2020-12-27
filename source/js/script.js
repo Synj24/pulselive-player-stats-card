@@ -66,6 +66,7 @@ getData("../../data/player-stats.json").then(data => {
 
         // Change player image
         playerImg.src = "assets/p" + player.player.id + ".png";
+        playerImg.alt = player.player.name.first + " " + player.player.name.last;
         console.log("changed image to: " + "p" + player.player.id + ".png");
         // Change player name
         playerName.innerHTML = player.player.name.first + " " + player.player.name.last;
