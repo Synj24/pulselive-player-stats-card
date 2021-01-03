@@ -51,7 +51,8 @@ getData("../../data/player-stats.json").then(data => {
 
 
     function changePlayer(player) {
-        const playerImg = document.getElementById("player-img");
+        const headshot = document.getElementById("headshot");
+        const playerImg = document.getElementById(player.player.id);
         const playerName = document.getElementById("player-name");
         const playerPosition = document.getElementById("player-position");
         const clubBadge = document.getElementById("badge");
@@ -61,21 +62,20 @@ getData("../../data/player-stats.json").then(data => {
         const goalsPerMatch = document.getElementById("goals-per-match");
         const passesPerMinute = document.getElementById("passes-per-minute");
 
-        //Clear console
-        console.clear();
-
         // Change player image
-        playerImg.src = "assets/p" + player.player.id + ".png";
-        playerImg.alt = player.player.name.first + " " + player.player.name.last;
-        console.log("changed image to: " + "p" + player.player.id + ".png");
+        let children = headshot.getElementsByTagName('img');
+        
+        for (let i=0; i < children.length; i++) { 
+            children[i].style.opacity = "0" 
+        }
+        playerImg.style.opacity = "1"
+
         // Change player name
         playerName.innerHTML = player.player.name.first + " " + player.player.name.last;
-        console.log("Player name: " + player.player.name.first + " " + player.player.name.last);
         // Change player position
         playerPosition.innerHTML = decodePosition(player.player.info.position);
         // Change club badge
         clubBadge.style.backgroundPosition = getBadge(player.player.currentTeam.shortName);
-        console.log("Plays for: " + player.player.currentTeam.name);
 
         // Change Goals
         if (player.stats[0].name === "goals") goals.innerHTML = player.stats[0].value;
